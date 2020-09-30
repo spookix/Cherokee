@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cherokee:
+    build:
+      context: ./
+    ports:
+      - 7000:8080
+    tty: true
+  apache:
+    image: httpd:2.4
+    volumes:
+      - ./public-html:/usr/local/apache2/htdocs/
+    ports:
+      - 8080:80
